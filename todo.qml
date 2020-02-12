@@ -12,7 +12,7 @@ ApplicationWindow {
 
         Text {
             anchors.centerIn: parent
-            text: "Hello, World!"
+            text: "Hello, World! Store contains: " + Store.test_state
         }
     }
 

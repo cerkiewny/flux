@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5 COMPONENTS Widgets Quick REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Quick Qml REQUIRED)
 
 add_executable(flux
     todo.qrc
@@ -14,4 +14,4 @@ add_executable(flux
     store.cpp
 )
 
-target_link_libraries(flux Qt5::Widgets Qt5::Quick)
+target_link_libraries(flux Qt5::Widgets Qt5::Quick Qt5::Qml)

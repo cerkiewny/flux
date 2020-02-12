@@ -1,9 +1,5 @@
 #include "store.h"
 
-QString Store::test_state() {
+QString Store::testState() {
     return "Test";
-}
-
-void Store::testStateChanged() {
-
 }
