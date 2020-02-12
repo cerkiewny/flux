@@ -1,6 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Controls 2.12
 
+import com.devtato.store 1.0
+
 ApplicationWindow {
     visible: true
     width: 800 
@@ -12,7 +14,7 @@ ApplicationWindow {
 
         Text {
             anchors.centerIn: parent
-            text: "Hello, World!"
+            text: "Hello, World! Store contains: " + Store.test_state
         }
     }
 
