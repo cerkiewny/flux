@@ -5,7 +5,12 @@
 #include <QQuickWindow>
 #include <QDebug>
 
+#include <thread>
+#include <string>
+#include <vector>
+
 #include "store.h"
+#include "dispatcher.h"
 
 static QObject* store_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
@@ -26,6 +31,18 @@ int main(int argv, char ** argc){
     Store store;
     qmlRegisterSingletonType<Store>("com.devtato.store", 1, 0, "Store", store_provider);
     component.loadUrl(QUrl("qrc:///todo.qml"));
+
+    Dispatcher dispatcher;
+    std::vector<std::thread> workers;
+
+    for (int i = 0; i < 5; i++) {
+    workers.push_back(std::thread([i, &dispatcher]() 
+    {
+      for(int j = 0; j < 1000; j++){
+        dispatcher.dispatch("test " + std::to_string(i) + " " + std::to_string(j));
+      }
+      }));
+    }
 
     if ( component.isReady() )
         component.create();

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <QObject>
 
 class Store : public QObject {
