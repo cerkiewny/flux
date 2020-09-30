@@ -15,6 +15,7 @@ add_executable(flux
     main.cpp
     store.cpp
     dispatcher.cpp
+    handlers.cpp
 )
 
 target_include_directories(flux SYSTEM PRIVATE ${Boost_INCLUDE_DIRS})

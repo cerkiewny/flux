@@ -8,9 +8,11 @@
 #include <thread>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "store.h"
 #include "dispatcher.h"
+#include "messageTypes.h"
 
 static QObject* store_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
@@ -39,7 +41,7 @@ int main(int argv, char ** argc){
     workers.push_back(std::thread([i, &dispatcher]() 
     {
       for(int j = 0; j < 1000; j++){
-        dispatcher.dispatch("test " + std::to_string(i) + " " + std::to_string(j));
+        dispatcher.dispatch<messageTypes::TEST_MESSAGE>(std::string("test " + std::to_string(i) + " " + std::to_string(j)));
       }
       }));
     }

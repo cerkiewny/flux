@@ -17,5 +17,4 @@ ApplicationWindow {
             text: "Hello, World! Store contains: " + Store.test_state
         }
     }
-
 }
