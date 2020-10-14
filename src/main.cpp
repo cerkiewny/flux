@@ -42,6 +42,7 @@ int main(int argv, char ** argc){
     {
       for(int j = 0; j < 1000; j++){
         dispatcher.dispatch<messageTypes::TEST_MESSAGE>(std::string("test " + std::to_string(i) + " " + std::to_string(j)));
+        dispatcher.dispatch<messageTypes::SILENT_MESSAGE>();
       }
       }));
     }

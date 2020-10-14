@@ -17,6 +17,7 @@ add_executable(flux
     dispatcher.cpp
     handlers.cpp
 )
-
+ 
+target_compile_features(flux PRIVATE cxx_std_17)
 target_include_directories(flux SYSTEM PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(flux PRIVATE Qt5::Widgets Qt5::Quick Threads::Threads)
